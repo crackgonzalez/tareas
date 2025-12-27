@@ -3,5 +3,5 @@ class Tarea:
         self.titulo = titulo
         self.completada = completada
 
-    def marcar_como_completada(self):
+    def marcar_completada(self):
         self.completada = True
