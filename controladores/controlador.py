@@ -11,9 +11,9 @@ class ControladorTareas:
         self.tareas.append(nueva_tarea)
         self.ventana.mostrar_tareas(self.tareas)
 
-    def modificar_titulo(self, indice, nuevo_titulo):
-        if 0 <= indice < len(self.tareas):
-            self.tareas[indice].titulo = nuevo_titulo
+    def editar_tarea(self, indice, nuevo_titulo): 
+        if 0 <= indice < len(self.tareas) and nuevo_titulo: 
+            self.tareas[indice].editar_titulo(nuevo_titulo) 
             self.ventana.mostrar_tareas(self.tareas)
 
     def completar_tarea(self, indice):
