@@ -16,5 +16,10 @@ class ControladorTareas:
             self.tareas[indice].marcar_completada()
             self.ventana.mostrar_tareas(self.tareas)
 
+    def eliminar_tarea(self, indice):
+        if 0 <= indice < len(self.tareas):
+            self.tareas.pop(indice)
+            self.ventana.mostrar_tareas(self.tareas)
+
     def iniciar(self):
         self.ventana.iniciar()
