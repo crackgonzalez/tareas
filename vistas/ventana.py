@@ -22,6 +22,10 @@ class VentanaTareas:
         self.btn_completar = tk.Button(self.root, text="Marcar como Completada", command=self.completar_tarea)
         self.btn_completar.pack(pady=5)
 
+        #Boton para modificar tarea
+        self.btn_modificar = tk.Button(self.root, text="Modificar Tarea", command=self.modificar_tarea)
+        self.btn_modificar.pack(pady=5)
+
         #Botón para eliminar tarea
         self.btn_eliminar = tk.Button(self.root, text="Eliminar Tarea", command=self.eliminar_tarea)
         self.btn_eliminar.pack(pady=5)
@@ -43,6 +47,14 @@ class VentanaTareas:
         for idx, tarea in enumerate(tareas):
             estado = "✓" if tarea.completada else "✗"
             self.lista_tareas.insert(tk.END, f"{idx + 1}. [{estado}] {tarea.titulo}")
+
+    def modificar_tarea(self):
+        seleccion = self.lista_tareas.curselection()
+        nuevo_titulo = self.entry.get()
+        if seleccion and nuevo_titulo:
+            indice = seleccion[0]
+            self.controlador.modificar_titulo(indice, nuevo_titulo)
+            self.entry.delete(0, tk.END)
 
     def eliminar_tarea(self):
         seleccion = self.lista_tareas.curselection()
